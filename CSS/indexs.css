@@ -1,5 +1,5 @@
 body { padding: 0; margin: 0;}
-.wrapper.active { margin-top: calc(56vh - 60px); transition: 0.5s;}
+.wrapper.active { margin-top: calc(58vh - 60px); transition: 0.5s;}
 
 /* Navbar */
 

@@ -44,7 +44,7 @@
 <div class="carousel slide" id="mySlider" data-ride="carousel">
     <div class="Carousel-upper">
     <div class="Upper-part">
-      <h2>Location Track in Progress</h2>
+      <h6>Location Track in Progress</h6>
       <button type="button" class="btn btn-success" name="button">Submit</button>
     </div>
     </div>
