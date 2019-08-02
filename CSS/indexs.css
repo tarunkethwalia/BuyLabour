@@ -1,0 +1,27 @@
+body { padding: 0; margin: 0;}
+.wrapper.active { margin-top: calc(56vh - 60px); transition: 0.5s;}
+
+/* Navbar */
+
+header {position: relative;top: 0;left: 0;width: 100%;box-sizing: border-box;height: 60px;}
+header .logo {position: relative;float: left;}
+header nav {float: right;}
+header nav ul {margin: 0;padding: 0;display: flex;}
+header nav ul li {list-style: none;}
+header nav ul li a {height: 60px;line-height: 60px;padding: 0 30px;color: #B97A59;text-decoration: none!important;}
+header nav ul li a:hover {color: black;}
+.SignIn-Up {display: block; background-color: #B97A59; color: white;}
+.menu-toggle {color: black;float: right;line-height: 60px;font-size: 24px;cursor: pointer;display: none;}
+
+@media (max-width:990px) {
+  header {height: 60px;}
+  .menu-toggle {display: block;margin-right: 10px;}
+  header nav {position: absolute;top: 60px;width: 100%;height: calc(100vh - 60px);left: -100%;}
+  header nav.active {left: 0;}
+  header nav ul {display: block;text-align: center;}
+}
+
+/* Carousel */
+#mySlider .item img {  width: 100%;}
+.Carousel-upper {display: flex;justify-content: center;align-items: center;text-align: center;}
+.Upper-part {position: absolute;margin-top: 15%;z-index: 1;background-color: white;padding: 10px;border-radius: 10px;}
