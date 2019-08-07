@@ -1,3 +1,14 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "1234";
+$dbname = "labourbuy";
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -98,12 +109,24 @@
 <div class="row">
 
   <!--Make the below div in while loop-->
-
+<?php
+$sql = "SELECT service_id, category_id, service_name,link FROM service";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+if($row["category_id"]=="1"){
+?>
   <div class="col-xl-6 col-sm-3 panel">
-    <a href=""><img src="Img/Labour/1.jpg" /></a>
-    <h4>First Service</h4>
+    <a href="<?php echo $row['link'];?>"><img src="Img/Labour/1.jpg" /></a>
+    <h4><?php echo $row['service_name'];?></h4>
   </div>
-
+  <?php
+ }}
+} else {
+  echo "0 results";
+}
+?>
   <!--Till Here-->
 </div>
 
@@ -113,11 +136,26 @@
 
   <!--Make the below div in while loop-->
 
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href=""><img src="Img/Labour/5.jpg" /></a>
-    <h4>Fifth Service</h4>
-  </div>
+  <?php
+$sql = "SELECT service_id, category_id, service_name,link FROM service";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+if($row["category_id"]=="2"){
+?>
 
+  <div class="col-xl-6 col-sm-3 panel">
+    <a href="<?php echo $row['link'];?>"><img src="Img/Labour/5.jpg" /></a>
+    <h4><?php echo $row['service_name'];?></h4>
+  </div>
+  <?php
+ }}
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
   <!--Till Here-->
 </div>
 

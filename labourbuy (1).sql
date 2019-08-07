@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2019 at 06:19 PM
+-- Generation Time: Aug 07, 2019 at 07:46 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -31,7 +31,10 @@ SET time_zone = "+00:00";
 CREATE TABLE `customer` (
   `user_id` int(11) NOT NULL,
   `fullname` varchar(40) DEFAULT NULL,
-  `phone_no` varchar(20) DEFAULT NULL
+  `phone_no` varchar(20) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `state` varchar(30) DEFAULT NULL,
+  `city` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -69,19 +72,20 @@ CREATE TABLE `login` (
 CREATE TABLE `service` (
   `service_id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
-  `service_name` varchar(40) DEFAULT NULL
+  `service_name` varchar(40) DEFAULT NULL,
+  `link` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service`
 --
 
-INSERT INTO `service` (`service_id`, `category_id`, `service_name`) VALUES
-(1, 1, 'Corporate'),
-(2, 1, 'Household'),
-(3, 1, 'Building'),
-(4, 2, 'Plumbing'),
-(5, 2, 'Gardening');
+INSERT INTO `service` (`service_id`, `category_id`, `service_name`, `link`) VALUES
+(1, 1, 'Corporate', NULL),
+(2, 1, 'Household', NULL),
+(3, 1, 'Building', NULL),
+(4, 2, 'Plumbing', NULL),
+(5, 2, 'Gardening', NULL);
 
 -- --------------------------------------------------------
 
