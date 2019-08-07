@@ -103,18 +103,6 @@
     <a href=""><img src="Img/Labour/1.jpg" /></a>
     <h4>First Service</h4>
   </div>
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href=""><img src="Img/Labour/2.jpg" /></a>
-    <h4>Second Service</h4>
-  </div>
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href=""><img src="Img/Labour/3.jpg" /></a>
-    <h4>Third Service</h4>
-  </div>
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href=""><img src="Img/Labour/4.jpg" /></a>
-    <h4>Fourth Service</h4>
-  </div>
 
   <!--Till Here-->
 </div>
@@ -128,18 +116,6 @@
   <div class="col-xl-6 col-sm-3 panel">
     <a href=""><img src="Img/Labour/5.jpg" /></a>
     <h4>Fifth Service</h4>
-  </div>
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href=""><img src="Img/Labour/6.jpg" /></a>
-    <h4>Sixth Service</h4>
-  </div>
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href=""><img src="Img/Labour/7.jpg" /></a>
-    <h4>Seventh Service</h4>
-  </div>
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href=""><img src="Img/Labour/8.jpg" /></a>
-    <h4>Eighth Service</h4>
   </div>
 
   <!--Till Here-->
