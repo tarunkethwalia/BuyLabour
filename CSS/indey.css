@@ -61,7 +61,9 @@ header nav ul li a:hover {color: black;}
 
 /* Sliders */
 .panel {display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 10px;}
-.panel a img{ width: 250px; height: 150px; border-radius: 5px;}
+.panel a img{ width: 250px; height: 150px; border-radius: 5px; transition: transform .5s;}
+.panel a { overflow: hidden;}
+.panel a img:hover {transform: scale(1.2);}
 
 /*Footer*/
 .footer {padding: 20px; padding-top: 30px; background-color: #F8F9FA; margin-top: 30px;	padding-left: 50px; padding-right: 50px;}
