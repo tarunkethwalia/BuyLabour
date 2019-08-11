@@ -7,7 +7,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -19,31 +19,42 @@ if ($conn->connect_error) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="CSS/inde.css" rel="stylesheet" />
+	<link href="CSS/indez.css" rel="stylesheet" />
   </head>
   <body>
 
     <!-- Modal -->
-<div class="modal fade" id="firstmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+    <div id="firstmodal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
         <div class="modal-content">
-          <h1>Modal in progress</h1>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+            <h1 class="modal-title">Log In</h1>
+          </div>
+          <div class="modal-body">
+            <div class="block">
+              <label for="Username">Username</label>
+              <input type="text" class="username" name="Username" placeholder="Username" required />
+            </div>
+            <div class="block">
+              <label for="Password">Password</label>
+              <input type="password" class="password" name="Password" placeholder="Password" required />
+            </div>
+            <br>
+            <div class="block3">
+              <label for="Or">Or Sign Up </label>
+              <a href="#" data-toggle="modal" data-target="#secondmodal" data-dismiss="modal" >Click Here</a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="modal-btn" value="Submit" />
+          </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success">Submit</button>
+
       </div>
     </div>
-  </div>
-</div>
+
 
 <!-- navbar -->
 <header>
@@ -53,14 +64,18 @@ if ($conn->connect_error) {
       <li>
         <a href="#" class="active">Home</a>
       </li>
-      <li>
-        <a href="#">Services</a>
+      <li id="service-li">
+        <a href="#" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a href="#">Labour Services</a>
+          <a href="#">Other Services</a>
+        </div>
       </li>
       <li>
         <a href="#">About Us</a>
       </li>
       <li>
-        <a href="#" class="SignIn-Up" data-toggle="modal" data-target="#firstmodal">Sign Up / Log In</a>
+        <a href="#" class="SignIn-Up" data-toggle="modal" data-target="#firstmodal">Log In</a>
       </li>
     </ul>
   </nav>
@@ -105,7 +120,7 @@ if ($conn->connect_error) {
 <div class="container">
 
 <!--First Row Slider-->
-<h3 class="Raleway">Labour Services</h3>
+<h3 class="Raleway srvc-heading">Labour Services</h3>
 <div class="row">
 
   <!--Make the below div in while loop-->
@@ -201,6 +216,15 @@ $conn->close();
       $('.menu-toggle').click(function() {
         $('nav').toggleClass('active');
         $('.wrapper').toggleClass('active');
+        $('#mySlider').toggleClass('active');
+      })
+
+      $('#service-btn').click(function() {
+        $('.dropdown-content').toggleClass('active');
+      })
+
+      $('#service-li').hover(function() {
+        $('#service-li').toggleClass('active');
       })
     })
   </script>
