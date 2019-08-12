@@ -14,12 +14,12 @@ if ($conn->connect_error) {
   <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BuyLabour | Home</title>
+	<title>BuyLabour | AboutUs</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="CSS/indev.css" rel="stylesheet" />
+	<link href="CSS/Aboutb.css" rel="stylesheet" />
   </head>
   <body>
 
@@ -86,94 +86,47 @@ if ($conn->connect_error) {
 
 <div class="wrapper">
 
-  <!-- Carousel -->
-<div class="carousel slide" id="mySlider" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="Img/Carousel/1.jpg" alt="">
-      </div>
-      <div class="item">
-        <img src="Img/Carousel/2.jpg" alt="">
-      </div>
-      <div class="item">
-        <img src="Img/Carousel/3.jpg" alt="">
-      </div>
+  <!-- Header -->
+  <div class="container header">
+    <div class="About-content">
+      <h1 class="Montserrat">ABOUT US</h1>
+      <hr>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </br>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </br>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
-
-    <div class="shadow"></div>
-
-    <div class="Carousel-upper">
-    <div class="Upper-part">
-      <h4>The Next Big Thing In Services.</h4>
+    <div class="About-image">
+      <img src="Img/About-img.png" />
     </div>
-    </div>
-
-      <a class="left carousel-control" href="#mySlider" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#mySlider" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-</div>
-
-<!--Sliders-->
-<div class="container">
-
-<!--First Row Slider-->
-<h3 class="Raleway srvc-heading">Labour Services</h3>
-<div class="row">
-
-  <!--Make the below div in while loop-->
-<?php
-$sql = "SELECT service_id, category_id, service_name,link FROM service";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-if($row["category_id"]=="1"){
-?>
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href="<?php echo $row['link'];?>"><img src="Img/Labour/1.jpg" /></a>
-    <h4><?php echo $row['service_name'];?></h4>
   </div>
-  <?php
- }}
-} else {
-  echo "0 results";
-}
-?>
-  <!--Till Here-->
+
+<!-- HowItWorks -->
+<div class="col-12 text-center How-Head">
+  <h1 class="Montserrat">HOW IT WORKS</h1>
+  <hr>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
 
-<!--Second Row Slider-->
-<h3 class="Raleway">Other Services</h3>
-<div class="row">
-
-  <!--Make the below div in while loop-->
-
-  <?php
-$sql = "SELECT service_id, category_id, service_name,link FROM service";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-if($row["category_id"]=="2"){
-?>
-
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href="<?php echo $row['link'];?>"><img src="Img/Labour/5.jpg" /></a>
-    <h4><?php echo $row['service_name'];?></h4>
+<div class="container-fluid text-center How-Head-two">
+  <div class="row">
+    <div class="col-md-4">
+      <i class="far fa-calendar-alt"></i>
+      <h3 class="Raleway">CHOOSING A SERVICE</h3>
+      <p>We match you with the appropriate service you need. Our goal is to provide best service possible at your doorstep.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="fas fa-user"></i>
+      <h3 class="Raleway">HASSLE FREE SERVICE</h3>
+      <p>Genuine service provided to you from booking to delivery.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="far fa-thumbs-up"></i>
+      <h3 class="Raleway">GREAT SERVICE GREAT REVIEWS</h3>
+      <p>Reviews helps everyone to acknowledge our services.</p>
+    </div>
   </div>
-  <?php
- }}
-} else {
-  echo "0 results";
-}
-$conn->close();
-?>
-  <!--Till Here-->
-</div>
-
 </div>
 
 <!--Footer-->
@@ -226,7 +179,6 @@ $conn->close();
       $('#service-li').hover(function() {
         $('#service-li').toggleClass('active');
       })
-
     })
   </script>
   </body>

@@ -1,5 +1,0 @@
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_form_icon
-(Either make the sign Up on front page below)
-
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_social_login
-(Or make it on modal for both)

@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Raleway&display=swap');
 
-body { padding: 0; margin: 0; font-family: 'Open Sans', sans-serif;}
-.wrapper.active { margin-top: calc(58vh - 60px); transition: 0.5s;}
+body { padding: 0; margin: 0; font-family: 'Open Sans', sans-serif; }
+.wrapper.active { margin-top: calc(53vh - 60px); transition: 0s;}
 .Raleway {font-family: 'Raleway', sans-serif; font-weight: bold;}
-.srvc-heading {margin-top: 50px;}
+.Montserrat {font-weight: bold; font-family: 'Montserrat', sans-serif;}
 
 /* Modal */
 .modal-header {background-color: #B97A59; display: flex; justify-content: flex-end;}
@@ -41,7 +41,7 @@ header nav ul li a:hover {color: black;}
 @media (max-width:990px) {
   header {height: 60px;}
   .menu-toggle {display: block; margin-right: 10px;}
-  header nav {position: absolute; top: 60px; width: 100%; height: calc(100vh - 60px); left: -100%; }
+  header nav {position: absolute; top: 62px; width: 100%; height: calc(100vh - 60px); left: -100%; }
   header nav.active {left: 0; transition: left ease-in;}
   header nav ul {display: block; text-align: center;}
   header nav ul li:nth-child(2) .dropdown-content.active {margin-bottom: 40px;}
@@ -51,28 +51,24 @@ header nav ul li a:hover {color: black;}
   #mySlider.active {position: relative; top: -31px;}
 }
 
-/* Carousel */
-#mySlider { height: 300px; display: flex; justify-content: center; align-items: center;}
-#mySlider .item img {  width: 100%; height: 300px;}
-.shadow {position: absolute; content: ''; width: 100%; height: 300px; background-color: black; opacity: 0.6;}
-.Carousel-upper {position: absolute;}
-.Carousel-upper h4 {color: white; font-size: 5vh; text-align: center; font-family: 'Montserrat', sans-serif;}
-.Upper-part { display: flex; justify-content: center; align-items: center; flex-direction: column;}
 
-/* Sliders */
-.panel {display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 10px;}
-.panel a img{ width: 250px; height: 150px; border-radius: 5px; transition: transform .5s;}
-.panel a { overflow: hidden;}
-.panel a img:hover {transform: scale(1.2);}
+/* Mid Body */
+#image-part { background: url("../Img/Enquiry.jpg"); background-size: cover; background-attachment: fixed; margin: 0; max-width: 100%; height: auto; width: auto\9; }
+.content { background-color: black; opacity: 0.8;}
+.box {color: white; z-index: 1;}
+.box1 {flex-basis: 60%; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+.box1 input {padding: 5px; color: black; background-color: white; z-index: 2; width: 40%;}
+.box2 {flex-basis: 40%; text-align: center; margin-bottom: 20px;}
+.input-container { padding: 5px; width: 100%; margin-bottom: 15px;}
+.icon {font-size: 30px; padding: 5px;}
+.input-field { width: 60%; padding: 5px; outline: none; color: black;}
+.box1 button , .box2 button {background-color: #B97A59; color: #FFFFFF; border: none; padding: 15px 35px; font-size: 16px;}
+.box1 button:hover , .box2 button:hover {background-color: #6F4935; color: white;}
 
-/*Footer*/
-.footer {padding: 20px; padding-top: 30px; background-color: #F8F9FA; margin-top: 30px;	padding-left: 50px; padding-right: 50px;}
-.footer_list_title {padding-bottom: 20px;}
+@media (min-width: 900px) {
+  .content {display: flex;}
+}
 
-.hr {border-bottom:1px solid red;margin: 0px 80px;}
-.hr2 {border-bottom:1px solid red;}
-.line {border-bottom:1px solid red;padding-bottom:30px;margin:0px 80px;}
-.RedHead {padding-top:30px;}
 
 /*Footer*/
 footer {background-color: #F8F9FA; padding: 20px;}
