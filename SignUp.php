@@ -14,12 +14,12 @@ if ($conn->connect_error) {
   <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BuyLabour | Enquiry</title>
+	<title>BuyLabour | SignUp</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="CSS/Enquirya.css" rel="stylesheet" />
+	<link href="CSS/SignUp.css" rel="stylesheet" />
   </head>
   <body>
 
@@ -86,13 +86,41 @@ if ($conn->connect_error) {
 
 <div class="wrapper">
 
-<div id="image-part">
-  <div class="container-fluid content">
-    <div class="box">
-      <img src="Img/Labour/8.jpg" />
-      <h1 class="Montserrat">Product Name (Edit This)</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<div class="Gradient">
+    <h1 class="Montserrat">Sign Up</h1>
+</div>
+
+<div class="content-wrapper">
+  <div class="left-box">
+    <div class="firstrow">
+      <form class="" action="" method="post">
+      <div class="inputs">
+        <input type="text" name="fullname" placeholder="Fullname" />
+        <input type="email" name="email" placeholder="Email" />
+      </div>
+      <div class="inputs">
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+      </div>
+      <div class="inputs">
+        <input type="text" name="state" placeholder="State" />
+        <input type="text" name="city" placeholder="City" />
+      </div>
+      <div class="inputs">
+        <input type="text" name="Phoneno" placeholder="Phone Number" />
+      </div>
+      <div class="sign-button">
+        <button type="submit" name="button"><i class="far fa-paper-plane"></i></button>
+      </div>
+    </form>
     </div>
+  </div>
+  <div class="right-box">
+    <h2 class="Raleway">Contact Information</h2>
+    <p>221b Baker Street</br>
+    London, England</p>
+    <p>+91 999-999-9999</p>
+    <p>loremipsum@gmail.com</p>
   </div>
 </div>
 

@@ -58,24 +58,24 @@ if ($conn->connect_error) {
 
 <!-- navbar -->
 <header>
-  <a class="logo" href="#"> <img src="Img/Logo.jpg" > </a>
+  <a class="logo" href="index.php"> <img src="Img/Logo.jpg" > </a>
   <nav>
     <ul>
       <li>
         <a href="index.php" class="active">Home</a>
       </li>
       <li id="service-li">
-        <a href="#" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
+        <a href="" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
         <div class="dropdown-content">
-          <a href="#">Labour Services</a>
-          <a href="#">Other Services</a>
+          <a href="LabourServ.php">Labour Services</a>
+          <a href="OtherServ.php">Other Services</a>
         </div>
       </li>
       <li>
         <a href="AboutUs.php">About Us</a>
       </li>
       <li>
-        <a href="#" class="SignIn-Up" data-toggle="modal" data-target="#firstmodal">Log In</a>
+        <a href="" class="SignIn-Up" data-toggle="modal" data-target="#firstmodal">Log In</a>
       </li>
     </ul>
   </nav>
@@ -181,7 +181,7 @@ if ($conn->connect_error) {
       })
 
       $('.modal-a-link').on('click', function() {
-        window.location.href="Enquiry.php";
+        window.location.href="SignUp.php";
       })
     })
   </script>
