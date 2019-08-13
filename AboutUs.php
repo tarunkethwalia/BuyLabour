@@ -19,7 +19,7 @@ if ($conn->connect_error) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="CSS/Aboutb.css" rel="stylesheet" />
+	<link href="CSS/Aboutc.css" rel="stylesheet" />
   </head>
   <body>
 
@@ -44,7 +44,7 @@ if ($conn->connect_error) {
             <br>
             <div class="block3">
               <label for="Or">Or Sign Up </label>
-              <a href="Enquiry.php" data-dismiss="modal" >Click Here</a>
+              <a href="Enquiry.php" class="modal-a-link" type="button" data-dismiss="modal" >Click Here</a>
             </div>
           </div>
           <div class="modal-footer">
@@ -178,6 +178,10 @@ if ($conn->connect_error) {
 
       $('#service-li').hover(function() {
         $('#service-li').toggleClass('active');
+      })
+
+      $('.modal-a-link').on('click', function() {
+        window.location.href="Enquiry.php";
       })
     })
   </script>

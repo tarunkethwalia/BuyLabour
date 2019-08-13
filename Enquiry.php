@@ -44,7 +44,7 @@ if ($conn->connect_error) {
             <br>
             <div class="block3">
               <label for="Or">Or Sign Up </label>
-              <a href="Enquiry.php" data-dismiss="modal" >Click Here</a>
+              <a href="Enquiry.php" class="modal-a-link" type="button" data-dismiss="modal" >Click Here</a>
             </div>
           </div>
           <div class="modal-footer">
@@ -89,7 +89,7 @@ if ($conn->connect_error) {
 <div id="image-part">
   <div class="container-fluid content">
     <div class="box box1">
-      <h1>Enquiry Form</h1>
+      <h1 class="Montserrat">Enquiry Form</h1>
       <h4>Edit this div</h4>
       <!-- EDIT FROM HERE -->
       <input type="text" name="Username" placeholder="Username" />
@@ -99,7 +99,7 @@ if ($conn->connect_error) {
       <button type="submit" class="btn">Submit</button>
     </div>
     <div class="box box2">
-      <h1>Sign Up</h1>
+      <h1 class="Montserrat">Sign Up</h1>
       <form action="/action_page.php" >
           <div class="input-container">
             <i class="fab fa-angellist icon"></i>
@@ -192,6 +192,10 @@ if ($conn->connect_error) {
 
         $('#service-li').hover(function() {
           $('#service-li').toggleClass('active');
+        })
+
+        $('.modal-a-link').on('click', function() {
+          window.location.href="Enquiry.php";
         })
       })
     </script>
