@@ -76,7 +76,7 @@ header nav ul li a:hover {color: black;}
 .panel p {text-align: center;}
 
 @media (min-width : 900px) {
-.lines {display: flex; justify-content: space-between;}
+.lines {display: flex; justify-content: space-between; flex-wrap: wrap;}
 }
 
 /*Footer*/
