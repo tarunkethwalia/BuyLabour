@@ -14,7 +14,7 @@ if ($conn->connect_error) {
   <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BuyLabour | Home</title>
+	<title>BuyLabour | labour Services</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -102,7 +102,7 @@ if ($conn->connect_error) {
 
 <!-- Products -->
 <div class="container product-body">
-<div class="row">
+<div class="lines">
 
   <!--Make the below div in while loop-->
 <?php
@@ -113,10 +113,10 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 if($row["category_id"]=="1"){
 ?>
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href="<?php echo $row['link'];?>"><img src="Img/Labour/1.jpg" /></a>
-    <h3 class="Raleway"><?php echo $row['service_name'];?></h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <div class="panel">
+      <a href="<?php echo $row['link'];?>"><img src="Img/Labour/1.jpg" /></a>
+      <h3 class="Raleway"><?php echo $row['service_name'];?></h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
   </div>
   <?php
  }}
