@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2019 at 07:46 PM
+-- Generation Time: Aug 14, 2019 at 07:59 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -81,11 +81,15 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`service_id`, `category_id`, `service_name`, `link`) VALUES
-(1, 1, 'Corporate', NULL),
-(2, 1, 'Household', NULL),
+(1, 1, 'Corporate', 'corporate.php'),
+(2, 1, 'Household', 'household.php'),
 (3, 1, 'Building', NULL),
 (4, 2, 'Plumbing', NULL),
-(5, 2, 'Gardening', NULL);
+(6, 2, 'Beautician', NULL),
+(7, 2, 'Electrician', NULL),
+(8, 2, 'Wedding Photoshoot', NULL),
+(9, 2, 'Wedding Planner', NULL),
+(10, 2, 'Dietician', NULL);
 
 -- --------------------------------------------------------
 
@@ -160,7 +164,7 @@ ALTER TABLE `inquiry`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `service_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `service_category`

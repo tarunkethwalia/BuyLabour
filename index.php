@@ -124,24 +124,15 @@ if ($conn->connect_error) {
 <div class="row">
 
   <!--Make the below div in while loop-->
-<?php
-$sql = "SELECT service_id, category_id, service_name,link FROM service";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-if($row["category_id"]=="1"){
-?>
   <div class="col-xl-6 col-sm-3 panel">
     <a href="<?php echo $row['link'];?>"><img src="Img/Labour/1.jpg" /></a>
-    <h4><?php echo $row['service_name'];?></h4>
+    <h4>Skilled</h4>
   </div>
-  <?php
- }}
-} else {
-  echo "0 results";
-}
-?>
+
+  <div class="col-xl-6 col-sm-3 panel">
+    <a href="<?php echo $row['link'];?>"><img src="Img/Labour/1.jpg" /></a>
+    <h4>Unskilled</h4>
+  </div>
   <!--Till Here-->
 </div>
 

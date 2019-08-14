@@ -92,10 +92,12 @@ if ($conn->connect_error) {
       <img src="Img/Labour/8.jpg" />
       <h1 class="Montserrat">Product Name (Edit This)</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <form>
+<input type="text">
+</form>
     </div>
   </div>
 </div>
-
 </div>
 
   <!--Footer-->
