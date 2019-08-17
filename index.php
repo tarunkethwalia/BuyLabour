@@ -65,7 +65,7 @@ if ($conn->connect_error) {
         <a href="index.php" class="active">Home</a>
       </li>
       <li id="service-li">
-        <a href="" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
+        <a href="#" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
         <div class="dropdown-content">
           <a href="LabourServ.php">Labour Services</a>
           <a href="OtherServ.php">Other Services</a>

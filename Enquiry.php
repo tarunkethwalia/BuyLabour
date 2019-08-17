@@ -19,7 +19,7 @@ if ($conn->connect_error) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="CSS/Enquirya.css" rel="stylesheet" />
+	<link href="CSS/Enquiryb.css" rel="stylesheet" />
   </head>
   <body>
 
@@ -65,7 +65,7 @@ if ($conn->connect_error) {
         <a href="index.php" class="active">Home</a>
       </li>
       <li id="service-li">
-        <a href="" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
+        <a href="#" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
         <div class="dropdown-content">
           <a href="LabourServ.php">Labour Services</a>
           <a href="OtherServ.php">Other Services</a>
@@ -93,13 +93,32 @@ if ($conn->connect_error) {
       <h1 class="Montserrat">Product Name (Edit This)</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <form>
-Company Name:<input type="text" id="company"><br>
-Phone No:<input type="text" id="phno"><br>
-Labour Required:<input type="text" id="qty" value="1"><br>
-Description:<textarea cols="50" rows="5"></textarea><br>
-Urgent:Yes<input type="radio" name="urgent" id="yes">No<input type="radio" name="urgent" id="no"><br>
-<button id="btn" onclick="submit_query()">Submit Enquiry</button>
-</form>
+        <div class="inputs">
+            <label for="company">Company Name:</label>
+            <input type="text" id="company">
+        </div>
+        <div class="inputs">
+            <label for="phno">Phone No:</label>
+            <input type="text" id="phno">
+        </div>
+        <div class="inputs">
+            <label for="qty">Labour Required:</label>
+            <input type="text" id="qty" value="1">
+        </div>
+        <div class="inputs texting">
+            <textarea placeholder="Description"></textarea>
+        </div>
+        <div class="inputs">
+            <label>Urgent:</label>
+            <label for="yes">Yes</label>
+            <input type="radio" name="urgent" id="yes">
+            <label for="no">No</label>
+            <input type="radio" name="urgent" id="no">
+        </div>
+        <div class="sub-btn">
+            <button id="btn" onclick="submit_query()">Submit Enquiry</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
