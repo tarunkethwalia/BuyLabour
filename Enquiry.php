@@ -93,7 +93,12 @@ if ($conn->connect_error) {
       <h1 class="Montserrat">Product Name (Edit This)</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <form>
-<input type="text">
+Company Name:<input type="text" id="company"><br>
+Phone No:<input type="text" id="phno"><br>
+Labour Required:<input type="text" id="qty" value="1"><br>
+Description:<textarea cols="50" rows="5"></textarea><br>
+Urgent:Yes<input type="radio" name="urgent" id="yes">No<input type="radio" name="urgent" id="no"><br>
+<button id="btn" onclick="submit_query()">Submit Enquiry</button>
 </form>
     </div>
   </div>
@@ -133,7 +138,24 @@ if ($conn->connect_error) {
         <h4>Copyright &copy; 2019 All rights reserved | Handcrafted by <span class="footer-delta">Delta Miden</span> </h4>
       </div>
     </footer>
+    <script>
 
+function submit_query(){
+    $.ajax({
+      url: "submit_query.php",
+      type: "POST",
+      data: {  username:username
+
+      },
+      success: function (result) {
+          if(result=="1"){
+          flag=1;
+          }
+      }
+  });
+
+}
+    </script>
     <script type="text/javascript">
       $(document).ready(function() {
         $('.menu-toggle').click(function() {
