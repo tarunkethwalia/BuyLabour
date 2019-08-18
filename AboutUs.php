@@ -65,7 +65,7 @@ if ($conn->connect_error) {
         <a href="index.php" class="active">Home</a>
       </li>
       <li id="service-li">
-        <a href="#" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
+        <a href="" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
         <div class="dropdown-content">
           <a href="LabourServ.php">Labour Services</a>
           <a href="OtherServ.php">Other Services</a>
@@ -74,9 +74,23 @@ if ($conn->connect_error) {
       <li>
         <a href="AboutUs.php">About Us</a>
       </li>
+      <?php
+      if(isset($_SESSION["loggedin"])){
+      ?>
+      <li>
+        <a href="logout.php" class="SignIn-Up">Logout</a>
+      </li>
+      <?php
+      }
+      else{
+        $_SESSION['username']="random_user_".rand(1,100000);
+      ?>
       <li>
         <a href="" class="SignIn-Up" data-toggle="modal" data-target="#firstmodal">Log In</a>
       </li>
+      <?php
+      }
+      ?>
     </ul>
   </nav>
   <div class="menu-toggle">

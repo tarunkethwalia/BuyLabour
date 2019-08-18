@@ -20,6 +20,7 @@ if ($conn->connect_error) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link href="CSS/SignUp.css" rel="stylesheet" />
+  <script src="ajax_signup.js"></script>
   </head>
   <body>
 
@@ -65,7 +66,7 @@ if ($conn->connect_error) {
         <a href="index.php" class="active">Home</a>
       </li>
       <li id="service-li">
-        <a href="#" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
+        <a href="" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
         <div class="dropdown-content">
           <a href="LabourServ.php">Labour Services</a>
           <a href="OtherServ.php">Other Services</a>
@@ -93,24 +94,25 @@ if ($conn->connect_error) {
 <div class="content-wrapper">
   <div class="left-box">
     <div class="firstrow">
-      <form class="" action="" method="post">
+      <form  method="post">
       <div class="inputs">
-        <input type="text" name="fullname" placeholder="Fullname" />
-        <input type="email" name="email" placeholder="Email" />
+        <input type="text" id="fullname" placeholder="Fullname" />
+        <input type="email" id="email" placeholder="Email" />
       </div>
       <div class="inputs">
-        <input type="text" name="username" placeholder="Username" />
-        <input type="password" name="password" placeholder="Password" />
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
       </div>
       <div class="inputs">
-        <input type="text" name="state" placeholder="State" />
-        <input type="text" name="city" placeholder="City" />
+        <input type="text" id="state" placeholder="State" />
+        <input type="text" id="city" placeholder="City" />
       </div>
       <div class="inputs">
-        <input type="text" name="Phoneno" placeholder="Phone Number" />
+        <input type="text" id="phno" placeholder="Phone Number" />
       </div>
       <div class="sign-button">
-        <button type="submit" name="button"><i class="far fa-paper-plane"></i></button>
+        <p id="msg2" style="color:red"></p>
+        <button type="button" onclick="signup1()"><i class="far fa-paper-plane"></i></button>
       </div>
     </form>
     </div>
@@ -159,7 +161,66 @@ if ($conn->connect_error) {
         <h4>Copyright &copy; 2019 All rights reserved | Handcrafted by <span class="footer-delta">Delta Miden</span> </h4>
       </div>
     </footer>
+<script>
+function user_check(){
+    var flag=0;
+    var username=$('#username').val();
+        $.ajax({
+            url: "check_username.php",
+            type: "POST",
+            async: false,
+            data: {  username:username
+            },
+            success: function (result) {
+                if(result=="1"){
+                flag=1;
+                }
+            }
+        });
+        return flag;
+           }
 
+
+function signup1(){
+  var f=user_check();
+  if(f=="0"){
+  var fullname=$('#fullname').val();
+  var phno=$('#phno').val();
+var password=$('#password').val();
+  var email=$('#email').val();
+  var city=$('#city').val();
+var state=$('#state').val();
+var username=$('#username').val();
+  $.ajax({
+      url: "signup_new.php",
+      type: "POST",
+      data: {
+                   fullname:fullname,
+                         phno:phno,
+                         password:password,
+                         email:email,
+           city:city,
+           state:state,
+           username:username
+
+      },
+      success: function (result) {
+          console.log(result);
+          document.querySelector('#msg2').textContent="Registration Successfull"
+  document.querySelector('#msg2').style.color="Green";
+
+      }
+  });
+}
+else if(f=="1") {
+document.querySelector('#msg2').textContent="User Already Registered";
+  document.querySelector('#msg2').style.color="Red";
+}
+
+
+}
+
+</script>
     <script type="text/javascript">
       $(document).ready(function() {
         $('.menu-toggle').click(function() {

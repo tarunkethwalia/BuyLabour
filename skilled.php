@@ -1,5 +1,4 @@
 <?php
-session_start();
 $servername = "localhost";
 $username = "root";
 $password = "1234";
@@ -15,13 +14,13 @@ if ($conn->connect_error) {
   <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BuyLabour | Home</title>
+	<title>BuyLabour | Other Services</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="CSS/indeu.css" rel="stylesheet" />
-  <script src="ajax_signup.js"></script>
+	<link href="CSS/OtherServs.css" rel="stylesheet" />
+    <script src="ajax_signup.js"></script>
   </head>
   <body>
 
@@ -37,21 +36,20 @@ if ($conn->connect_error) {
           <div class="modal-body">
             <div class="block">
               <label for="Username">Username</label>
-              <input type="text" class="username" id="username" placeholder="Username" required />
+              <input type="text" class="username" name="Username" placeholder="Username" required />
             </div>
             <div class="block">
               <label for="Password">Password</label>
-              <input type="password" class="password" id="password" placeholder="Password" required />
+              <input type="password" class="password" name="Password" placeholder="Password" required />
             </div>
             <br>
             <div class="block3">
               <label for="Or">Or Sign Up </label>
               <a href="Enquiry.php" class="modal-a-link" type="button" data-dismiss="modal" >Click Here</a>
-              <p id="msg" style="color:red"></p>
             </div>
           </div>
           <div class="modal-footer">
-            <input type="button" class="modal-btn" value="Submit" onclick="login()"/>
+            <input type="button" class="modal-btn" value="Submit" />
           </div>
         </div>
 
@@ -68,7 +66,7 @@ if ($conn->connect_error) {
         <a href="index.php" class="active">Home</a>
       </li>
       <li id="service-li">
-        <a href="#" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
+        <a href="" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
         <div class="dropdown-content">
           <a href="LabourServ.php">Labour Services</a>
           <a href="OtherServ.php">Other Services</a>
@@ -101,76 +99,39 @@ if ($conn->connect_error) {
   </div>
 </header>
 
+<!-- Wrapper -->
 <div class="wrapper">
 
-  <!-- Carousel -->
-<div class="carousel slide" id="mySlider" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="Img/Carousel/1.jpg" alt="">
-      </div>
-      <div class="item">
-        <img src="Img/Carousel/2.jpg" alt="">
-      </div>
-      <div class="item">
-        <img src="Img/Carousel/3.jpg" alt="">
-      </div>
-    </div>
-
-    <div class="shadow"></div>
-
-    <div class="Carousel-upper">
-    <div class="Upper-part">
-      <h4>The Next Big Thing In Services.</h4>
-    </div>
-    </div>
-
-      <a class="left carousel-control" href="#mySlider" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#mySlider" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
+<div class="product-head">
+  <div class="head-content">
+    <h1 class="Montserrat">Skilled Services</h1>
+    <hr>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </br>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  </div>
+  <div class="head-img">
+    <img src="Img/Services.jpg" alt="">
+  </div>
 </div>
 
-<!--Sliders-->
-<div class="container">
-
-<!--First Row Slider-->
-<h3 class="Raleway srvc-heading">Labour Services (Corporate)</h3>
-<div class="row">
+<!-- Products -->
+<div class="container product-body">
+<div class="lines">
 
   <!--Make the below div in while loop-->
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href="skilled.php"><img src="Img/Labour/1.jpg" /></a>
-    <h4>Skilled</h4>
-  </div>
-
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href="unskilled.php"><img src="Img/Labour/1.jpg" /></a>
-    <h4>Unskilled</h4>
-  </div>
-  <!--Till Here-->
-</div>
-
-<!--Second Row Slider-->
-<h3 class="Raleway">Other Services (Urgent)</h3>
-<div class="row">
-
-  <!--Make the below div in while loop-->
-
   <?php
 $sql = "SELECT service_id, category_id, service_name FROM service";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-if($row["category_id"]=="2"){
+if($row["category_id"]=="1"){
 ?>
-
-  <div class="col-xl-6 col-sm-3 panel">
-    <a href="#" onclick="checkout(this.id)" id=<?php echo $row['service_id'];?>><img src="Img/Labour/5.jpg" /></a>
-    <h4><?php echo $row['service_name'];?></h4>
+  <div class="panel">
+      <a href="#" onclick="checkout(this.id)" id=<?php echo $row['service_id'];?>><img src="Img/Labour/5.jpg" /></a>
+      <h3 class="Raleway"><?php echo $row['service_name'];?></h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
   </div>
   <?php
  }}
@@ -180,6 +141,7 @@ if($row["category_id"]=="2"){
 $conn->close();
 ?>
   <!--Till Here-->
+</div>
 </div>
 
 </div>

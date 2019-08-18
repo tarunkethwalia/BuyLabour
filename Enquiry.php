@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "1234";
@@ -19,7 +20,7 @@ if ($conn->connect_error) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="CSS/Enquiryb.css" rel="stylesheet" />
+	<link href="CSS/Enquiryc.css" rel="stylesheet" />
   </head>
   <body>
 
@@ -74,9 +75,23 @@ if ($conn->connect_error) {
       <li>
         <a href="AboutUs.php">About Us</a>
       </li>
+      <?php
+      if(isset($_SESSION["loggedin"])){
+      ?>
+      <li>
+        <a href="logout.php" class="SignIn-Up">Logout</a>
+      </li>
+      <?php
+      }
+      else{
+        $_SESSION['username']="random_user_".rand(1,100000);
+      ?>
       <li>
         <a href="" class="SignIn-Up" data-toggle="modal" data-target="#firstmodal">Log In</a>
       </li>
+      <?php
+      }
+      ?>
     </ul>
   </nav>
   <div class="menu-toggle">
@@ -90,12 +105,12 @@ if ($conn->connect_error) {
   <div class="container-fluid content">
     <div class="box">
       <img src="Img/Labour/8.jpg" />
-      <h1 class="Montserrat">Product Name (Edit This)</h1>
+      <h1 class="Montserrat"><?php if(isset($_SESSION['service_name'])){echo $_SESSION['service_name'];}?></h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <form>
         <div class="inputs">
             <label for="company">Company Name:</label>
-            <input type="text" id="company">
+            <input type="text" id="comp">
         </div>
         <div class="inputs">
             <label for="phno">Phone No:</label>
@@ -106,18 +121,23 @@ if ($conn->connect_error) {
             <input type="text" id="qty" value="1">
         </div>
         <div class="inputs texting">
-            <textarea placeholder="Description"></textarea>
+            <textarea placeholder="Description" id="desc"></textarea>
         </div>
         <div class="inputs">
             <label>Urgent:</label>
             <label for="yes">Yes</label>
-            <input type="radio" name="urgent" id="yes">
+            <input type="radio" name="urgent" value="yes">
             <label for="no">No</label>
-            <input type="radio" name="urgent" id="no">
+            <input type="radio" name="urgent" value="no">
+        </div>
+        <div class="inputs">
+            <label for="address">Address:</label>
+            <input type="text" id="add">
         </div>
         <div class="sub-btn">
-            <button id="btn" onclick="submit_query()">Submit Enquiry</button>
+            <button id="btn" type="button" onclick="submit_query()">Submit Enquiry</button>
         </div>
+        <p id="msg"></p>
       </form>
     </div>
   </div>
@@ -158,21 +178,31 @@ if ($conn->connect_error) {
       </div>
     </footer>
     <script>
-
 function submit_query(){
+  var comp=$("#comp").val();
+  var phno=$("#phno").val();
+  var desc=$("#desc").val();
+  var qty=$("#qty").val();
+  var urgent=$("input[name='urgent']:checked").val();
+  var address=$("#add").val();
     $.ajax({
       url: "submit_query.php",
       type: "POST",
-      data: {  username:username
-
+      data: {
+        company_name:comp,
+        phone_no:phno,
+        description:desc,
+        urgent:urgent,
+        address:address,
+        qty:qty
       },
       success: function (result) {
-          if(result=="1"){
-          flag=1;
-          }
+        document.getElementById("msg").innerHTML="Your Enquiry has been submitted successfully";
+        var timer = setTimeout(function() {
+            window.location='index.php';
+        }, 3000);
       }
   });
-
 }
     </script>
     <script type="text/javascript">
@@ -182,15 +212,12 @@ function submit_query(){
           $('.wrapper').toggleClass('active');
           $('#mySlider').toggleClass('active');
         })
-
         $('#service-btn').click(function() {
           $('.dropdown-content').toggleClass('active');
         })
-
         $('#service-li').hover(function() {
           $('#service-li').toggleClass('active');
         })
-
         $('.modal-a-link').on('click', function() {
           window.location.href="SignUp.php";
         })

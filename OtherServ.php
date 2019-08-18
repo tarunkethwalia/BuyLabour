@@ -20,6 +20,7 @@ if ($conn->connect_error) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link href="CSS/OtherServs.css" rel="stylesheet" />
+    <script src="ajax_signup.js"></script>
   </head>
   <body>
 
@@ -65,7 +66,7 @@ if ($conn->connect_error) {
         <a href="index.php" class="active">Home</a>
       </li>
       <li id="service-li">
-        <a href="#" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
+        <a href="" id="service-btn">Services<i class="fas fa-caret-down"></i></a>
         <div class="dropdown-content">
           <a href="LabourServ.php">Labour Services</a>
           <a href="OtherServ.php">Other Services</a>
@@ -74,9 +75,23 @@ if ($conn->connect_error) {
       <li>
         <a href="AboutUs.php">About Us</a>
       </li>
+      <?php
+      if(isset($_SESSION["loggedin"])){
+      ?>
+      <li>
+        <a href="logout.php" class="SignIn-Up">Logout</a>
+      </li>
+      <?php
+      }
+      else{
+        $_SESSION['username']="random_user_".rand(1,100000);
+      ?>
       <li>
         <a href="" class="SignIn-Up" data-toggle="modal" data-target="#firstmodal">Log In</a>
       </li>
+      <?php
+      }
+      ?>
     </ul>
   </nav>
   <div class="menu-toggle">
@@ -106,7 +121,7 @@ if ($conn->connect_error) {
 
   <!--Make the below div in while loop-->
   <?php
-$sql = "SELECT service_id, category_id, service_name,link FROM service";
+$sql = "SELECT service_id, category_id, service_name FROM service";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
@@ -114,7 +129,7 @@ if ($result->num_rows > 0) {
 if($row["category_id"]=="2"){
 ?>
   <div class="panel">
-      <a href="<?php echo $row['link'];?>"><img src="Img/Labour/5.jpg" /></a>
+      <a href="#" onclick="checkout(this.id)" id=<?php echo $row['service_id'];?>><img src="Img/Labour/5.jpg" /></a>
       <h3 class="Raleway"><?php echo $row['service_name'];?></h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
   </div>

@@ -10,10 +10,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
-$ph_no = $_POST['ph_no'];
-      $password =$_POST['password']; 
-	  $sql1 = "SELECT * FROM login where ph_no='$ph_no' and password='$password'";
+}
+$username = $_POST['username'];
+      $password =$_POST['password'];
+	  $sql1 = "SELECT * FROM customer where username='$username' and password='$password'";
 $result1 = $conn->query($sql1);
 
 if ($result1->num_rows > 0) {
@@ -21,13 +21,11 @@ if ($result1->num_rows > 0) {
     while($row = $result1->fetch_assoc()) {
 
 	$_SESSION["loggedin"]="T";
-		$_SESSION["user_id"]="$ph_no";
-		$_SESSION["name"]=$full_name;
-        header("Location: index.php");
+		$_SESSION["username"]="$username";
+    echo "1";
     }
 } else {
-    $_SESSION["login_check"]="F";
-	header("Location: index.php");
+    echo "0";
 }
 
 
